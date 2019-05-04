@@ -5,6 +5,7 @@ using UnityEngine;
 public class LandMan : Singleton<LandMan>
 {
     public Dictionary<Key, GroundCube> CurrentCubes = new Dictionary<Key, GroundCube>();
+    private List<CubeUpgrade> ResourceList = new List<CubeUpgrade>();
     public GroundCube CubePrefab;
     public NavMeshSurface NavMesh;
     protected override void Awake()
@@ -40,5 +41,33 @@ public class LandMan : Singleton<LandMan>
         return _temp;
     }
 
+    public CubeUpgrade GetNearbyUpgrade(Worker worker,CubeUpgradeTypes resourceRequested)
+    {
+        ResourceList.Clear();
+        foreach (var item in CurrentCubes)
+        {
+            if (item.Value.CurrentUpgradeType == resourceRequested)
+            {
+                ResourceList.Add(item.Value.CurrentUpgrade);
+            }
+        }
+        if (ResourceList.Count >0)
+        {
+            //get nearest upgrade
+            float _dist = Mathf.Abs(Vector3.Distance(worker.transform.position , ResourceList[0].transform.position));
+            CubeUpgrade _temp = ResourceList[0]; 
+            for (int i = 0; i < ResourceList.Count; i++)
+            {
+                if (Mathf.Abs(Vector3.Distance(worker.transform.position , ResourceList[i].transform.position)) < _dist)
+                {
+                    _temp = ResourceList[i];
+                    _dist = Mathf.Abs(Vector3.Distance(worker.transform.position, ResourceList[i].transform.position));
+                }
+            }
+            return _temp;
+        }
+
+        return null;
+    }
     
 }
