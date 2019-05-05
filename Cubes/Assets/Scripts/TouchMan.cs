@@ -53,6 +53,10 @@ public class TouchMan : MonoBehaviour
             PlayerAction = UpgradeTile;
             SelectedUpgrade = TreePrefab;
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            PlayerAction = ClearTile;
+        }
         touch = GetPointer();
         if (touch != null)
         {
@@ -70,6 +74,16 @@ public class TouchMan : MonoBehaviour
             {
                 LandMan.Instance.AddCube(new Key(Mathf.RoundToInt(_hit.point.x), Mathf.RoundToInt(_hit.point.z)));
             }
+        }
+    }
+    private void ClearTile()
+    {
+        _ray = Camera.main.ScreenPointToRay(touch.ScreenPos);
+        if (Physics.Raycast(_ray, out _hit, Mathf.Infinity, GroundCubeLayer))
+        {
+            GroundCube temp = _hit.transform.GetComponent<GroundCube>();
+            temp.UpgradeTile(CubeUpgradeTypes.Nil);
+
         }
     }
     private void UpgradeTile()

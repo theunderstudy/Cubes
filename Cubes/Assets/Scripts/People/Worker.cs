@@ -27,7 +27,7 @@ public class Worker : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        CurrentAI = Wander;
+        CurrentAI = StartWander;
     }
 
     private void Update()
@@ -50,7 +50,7 @@ public class Worker : MonoBehaviour
         {
             Agent.destination = Destination;
             CurrentAI = Wander;
-            
+            NextAI = MoveToWorkTarget;
         }
     }
     private void Wander()
@@ -61,7 +61,7 @@ public class Worker : MonoBehaviour
             if (timer > WanderIdleTime)
             {
                 timer = 0;
-                CurrentAI = StartWander;
+                CurrentAI = NextAI;
             }
         }
     }
@@ -77,16 +77,28 @@ public class Worker : MonoBehaviour
         //HACK: just use trees for testing
         if (CurrentWorkTarget)
         {
-            
+            //check if pathing is done
+            if (!Agent.hasPath)
+            {
+                CurrentAI = WorkTarget;
+                NextAI = StartWander;
+            }
             return;
         }
         CurrentWorkTarget= LandMan.Instance.GetNearbyUpgrade(this,GetDesiredResource());
+        if (!CurrentWorkTarget)
+        {
 
+            CurrentAI = StartWander;
+            return;
+        }
+        Agent.SetDestination(CurrentWorkTarget.GetWorkLocation());
     }
 
     private void WorkTarget()
     {
-        
+        CurrentAI = NextAI;
+        CurrentWorkTarget = null;
     }
 
 

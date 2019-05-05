@@ -7,10 +7,9 @@ public abstract class Resource : CubeUpgrade
     protected float CurrentWorkTowardsHarvest;
     public int UnitsPerHarvest;
     public float AmountHarvested;
-    public CubeUpgradeTypes UpgradeType;
 
-    public abstract bool HarvestResource(float workDone);
+   
 
-    public virtual Vector3 GetHarvestLocation() { return transform.position; }
+  
     
 }

@@ -5,13 +5,16 @@ using UnityEngine;
 public class Tree : Resource
 {
     
-    public override bool HarvestResource(float workDone)
+    public override bool WorkUpgrade(float workDone)
     {
         CurrentWorkTowardsHarvest += workDone;
         if (CurrentWorkTowardsHarvest >= WorkRequiredToHarvest)
         {
+            Debug.Log("Harvest complete");
             return true;
         }
+
+        Debug.Log("Working " + UpgradeType + ". work = " + CurrentWorkTowardsHarvest + "/"+WorkRequiredToHarvest);
         return false;
     }
 }

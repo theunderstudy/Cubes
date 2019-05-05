@@ -30,7 +30,19 @@ public class GroundCube : MonoBehaviour
         CurrentUpgrade = newUpgrade;
         CurrentUpgradeType = newUpgrade.UpgradeType;
         newUpgrade.transform.parent = transform;
-        newUpgrade.transform.localPosition = Vector3.zero;
-           
+        newUpgrade.transform.localPosition = Vector3.zero;           
+    }
+
+    public  void UpgradeTile(CubeUpgradeTypes newUpgradeType)
+    {
+        if (CurrentUpgrade)
+        {
+            Destroy(CurrentUpgrade.gameObject);
+            CurrentUpgrade = null;
+            CurrentUpgradeType = CubeUpgradeTypes.Nil;
+            //HACK:
+            return;
+            Destroy(CurrentUpgrade);
+        }
     }
 }
