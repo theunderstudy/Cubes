@@ -97,8 +97,12 @@ public class Worker : MonoBehaviour
 
     private void WorkTarget()
     {
-        CurrentAI = NextAI;
-        CurrentWorkTarget = null;
+        //work upgrade til work is done
+        if (CurrentWorkTarget.WorkUpgrade(CalculateWork()))
+        {
+            CurrentAI = NextAI;
+            CurrentWorkTarget = null;
+        }        
     }
 
 
