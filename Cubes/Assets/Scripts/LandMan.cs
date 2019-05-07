@@ -41,12 +41,12 @@ public class LandMan : Singleton<LandMan>
         return _temp;
     }
 
-    public CubeUpgrade GetNearbyUpgrade(Worker worker,CubeUpgradeTypes resourceRequested)
+    public CubeUpgrade GetNearbyUpgrade(Worker worker,CubeUpgradeTypes upgradeRequested)
     {
         ResourceList.Clear();
         foreach (var item in CurrentCubes)
         {
-            if (item.Value.CurrentUpgradeType == resourceRequested)
+            if (item.Value.CurrentUpgradeType == upgradeRequested)
             {
                 ResourceList.Add(item.Value.CurrentUpgrade);
             }
@@ -69,5 +69,7 @@ public class LandMan : Singleton<LandMan>
 
         return null;
     }
+
+    
     
 }

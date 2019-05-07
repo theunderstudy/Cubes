@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoreHouse : MonoBehaviour
+public class StoreHouse : Building
 {
-    // Start is called before the first frame update
-    void Start()
+    public override bool WorkUpgrade(float workDone)
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeliverResources()
     {
-        
+
     }
+
 }

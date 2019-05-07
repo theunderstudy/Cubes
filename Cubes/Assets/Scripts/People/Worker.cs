@@ -18,9 +18,10 @@ public class Worker : MonoBehaviour
     public float WanderRadius;
     public float WanderIdleTime;
     #endregion
-    #region HarvestingResource
+    #region WorkingResource
     private CubeUpgrade CurrentWorkTarget;
     public float WorkApplied = 1;
+    public float TimeBetweenWorks = 2;
     #endregion
     private float currentTimer;
     private float timer;
@@ -71,6 +72,10 @@ public class Worker : MonoBehaviour
         return CubeUpgradeTypes.Tree;
     }
 
+    private void Build()
+    {
+        //check for resrouces
+    }
     private void MoveToWorkTarget()
     {
         //get resource from priority list
@@ -97,9 +102,17 @@ public class Worker : MonoBehaviour
 
     private void WorkTarget()
     {
+        timer += Time.deltaTime;
+        //time between works
+        if (timer < TimeBetweenWorks)
+        {
+            return;
+        }
+        timer = 0;
         //work upgrade til work is done
         if (CurrentWorkTarget.WorkUpgrade(CalculateWork()))
         {
+            //collect resrouce
             CurrentAI = NextAI;
             CurrentWorkTarget = null;
         }        
@@ -108,7 +121,7 @@ public class Worker : MonoBehaviour
 
     private float CalculateWork()
     {
-        float _workDone = 0;
+        float _workDone = WorkApplied;
 
         return _workDone;
     }
