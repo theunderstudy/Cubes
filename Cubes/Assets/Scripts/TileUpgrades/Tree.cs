@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Tree : Resource
 {
-    
+    public override BuildingMaterial TakeMaterial()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override bool WorkUpgrade(float workDone)
     {
         CurrentWorkTowardsHarvest += workDone;

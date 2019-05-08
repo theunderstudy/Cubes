@@ -23,6 +23,11 @@ public class Worker : MonoBehaviour
     public float WorkApplied = 1;
     public float TimeBetweenWorks = 2;
     #endregion
+
+    #region Building
+    public BuildingMaterial CarriedMaterial;
+
+    #endregion
     private float currentTimer;
     private float timer;
     private void Awake()
@@ -90,7 +95,7 @@ public class Worker : MonoBehaviour
             }
             return;
         }
-        CurrentWorkTarget= LandMan.Instance.GetNearbyUpgrade(this,GetDesiredResource());
+        CurrentWorkTarget = LandMan.Instance.GetNearbyUpgrade(this, GetDesiredResource());
         if (!CurrentWorkTarget)
         {
 
@@ -113,9 +118,10 @@ public class Worker : MonoBehaviour
         if (CurrentWorkTarget.WorkUpgrade(CalculateWork()))
         {
             //collect resrouce
+            CarriedMaterial = CurrentWorkTarget.TakeMaterial();
             CurrentAI = NextAI;
             CurrentWorkTarget = null;
-        }        
+        }
     }
 
 
@@ -130,7 +136,7 @@ public class Worker : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            pos = new Vector3(transform.position.x + Random.Range(-WanderRadius, WanderRadius) , 0, (transform.position.z + Random.Range(-WanderRadius, WanderRadius)));
+            pos = new Vector3(transform.position.x + Random.Range(-WanderRadius, WanderRadius), 0, (transform.position.z + Random.Range(-WanderRadius, WanderRadius)));
             if (NavMesh.SamplePosition(pos, out Hit, 1.0f, NavMesh.AllAreas))
             {
                 pos = Hit.position;

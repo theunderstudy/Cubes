@@ -16,6 +16,6 @@ public abstract class CubeUpgrade : MonoBehaviour
     public CubeUpgradeTypes UpgradeType;
     public virtual Vector3 GetWorkLocation() { return transform.position; }
     public abstract bool WorkUpgrade(float workDone);
-
+    public abstract BuildingMaterial TakeMaterial();
 
 }
