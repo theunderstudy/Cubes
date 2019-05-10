@@ -27,7 +27,9 @@ public class GroundCube : MonoBehaviour
             return;
             Destroy(CurrentUpgrade);
         }
+
         CurrentUpgrade = newUpgrade;
+        CurrentUpgrade.MyCube = this;
         CurrentUpgradeType = newUpgrade.UpgradeType;
         newUpgrade.transform.parent = transform;
         newUpgrade.transform.localPosition = Vector3.zero;           

@@ -322,6 +322,24 @@
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenProEditor">
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
     </Reference>

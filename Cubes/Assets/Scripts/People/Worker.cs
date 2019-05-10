@@ -9,6 +9,7 @@ public class Worker : MonoBehaviour
     private delegate void AIFunction();
     private AIFunction CurrentAI;
     private AIFunction NextAI;
+    public Transform BuildingMaterialCarryPos;
     #region Navigation General
     private NavMeshAgent Agent;
     private NavMeshHit Hit;
@@ -118,7 +119,7 @@ public class Worker : MonoBehaviour
         if (CurrentWorkTarget.WorkUpgrade(CalculateWork()))
         {
             //collect resrouce
-            CarriedMaterial = CurrentWorkTarget.TakeMaterial();
+            CarriedMaterial = CurrentWorkTarget.TakeMaterial(BuildingMaterialCarryPos);
             CurrentAI = NextAI;
             CurrentWorkTarget = null;
         }

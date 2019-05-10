@@ -14,14 +14,12 @@ public class StoreHouse : Building
     {
 
     }
+    
 
-    public void RetrieveMaterial()
-    {
-
-    }
-
-    public override BuildingMaterial TakeMaterial()
+    public override BuildingMaterial TakeMaterial(Transform trans)
     {
         throw new System.NotImplementedException();
     }
+
+   
 }
