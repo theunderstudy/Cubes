@@ -5,7 +5,7 @@ using UnityEngine;
 public class LandMan : Singleton<LandMan>
 {
     public Dictionary<Key, GroundCube> CurrentCubes = new Dictionary<Key, GroundCube>();
-    private List<CubeUpgrade> ResourceList = new List<CubeUpgrade>();
+    private List<CubeUpgrade> CubeList = new List<CubeUpgrade>();
     public GroundCube CubePrefab;
     public NavMeshSurface NavMesh;
     protected override void Awake()
@@ -27,7 +27,7 @@ public class LandMan : Singleton<LandMan>
     {
         if (!CurrentCubes.ContainsKey(key))
         {
-            CurrentCubes.Add(key,InstantiateCube(key));
+            CurrentCubes.Add(key, InstantiateCube(key));
             NavMesh.BuildNavMesh();
             return true;
         }
@@ -36,32 +36,32 @@ public class LandMan : Singleton<LandMan>
 
     private GroundCube InstantiateCube(Key pos)
     {
-        GroundCube _temp = Instantiate(CubePrefab,transform);
+        GroundCube _temp = Instantiate(CubePrefab, transform);
         _temp.InitializeCube(pos);
         return _temp;
     }
 
-    public CubeUpgrade GetNearbyUpgrade(Worker worker,CubeUpgradeTypes upgradeRequested)
+    public CubeUpgrade GetNearbyUpgrade(Worker worker, CubeUpgradeTypes upgradeRequested)
     {
-        ResourceList.Clear();
+        CubeList.Clear();
         foreach (var item in CurrentCubes)
         {
             if (item.Value.CurrentUpgradeType == upgradeRequested)
             {
-                ResourceList.Add(item.Value.CurrentUpgrade);
+                CubeList.Add(item.Value.CurrentUpgrade);
             }
         }
-        if (ResourceList.Count >0)
+        if (CubeList.Count > 0)
         {
             //get nearest upgrade
-            float _dist = Mathf.Abs(Vector3.Distance(worker.transform.position , ResourceList[0].transform.position));
-            CubeUpgrade _temp = ResourceList[0]; 
-            for (int i = 0; i < ResourceList.Count; i++)
+            float _dist = Mathf.Abs(Vector3.Distance(worker.transform.position, CubeList[0].transform.position));
+            CubeUpgrade _temp = CubeList[0];
+            for (int i = 0; i < CubeList.Count; i++)
             {
-                if (Mathf.Abs(Vector3.Distance(worker.transform.position , ResourceList[i].transform.position)) < _dist)
+                if (Mathf.Abs(Vector3.Distance(worker.transform.position, CubeList[i].transform.position)) < _dist)
                 {
-                    _temp = ResourceList[i];
-                    _dist = Mathf.Abs(Vector3.Distance(worker.transform.position, ResourceList[i].transform.position));
+                    _temp = CubeList[i];
+                    _dist = Mathf.Abs(Vector3.Distance(worker.transform.position, CubeList[i].transform.position));
                 }
             }
             return _temp;
@@ -70,6 +70,28 @@ public class LandMan : Singleton<LandMan>
         return null;
     }
 
-    
-    
+    public List<BuildingMaterial> GetMaterial(MaterialTypes materialType)
+    {
+        List<BuildingMaterial> temp = new List<BuildingMaterial>();
+        foreach (var item in CurrentCubes)
+        {
+            if (item.Value.CurrentUpgradeType == CubeUpgradeTypes.StoreHouse)
+            {
+                // Check store house for material 
+                StoreHouse store = (StoreHouse)item.Value.CurrentUpgrade;
+                for (int i = 0; i < store.StoredResources.Count; i++)
+                {
+                    for (int x = 0; x < store.StoredResources[i].Count; x++)
+                    {
+                        if (store.StoredResources[i][x].MaterialType == materialType)
+                        {
+                            temp.Add(store.StoredResources[i][x]);
+                        }
+                    }
+                }
+            }
+        }
+        return temp;
+    }
+
 }
