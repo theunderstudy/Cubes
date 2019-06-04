@@ -4,16 +4,14 @@ using UnityEngine.AI;
 
 public class Worker : MonoBehaviour
 {
-    private delegate void AIFunction();
-    private AIFunction CurrentAI;
+    public delegate void AIFunction();
+    public AIFunction CurrentAI;
 
     public Transform BuildingMaterialCarryPos;
     #region Navigation General
   
     #endregion
     #region Wander
-    public float WanderRadius;
-    public float WanderIdleTime;
     #endregion
     #region WorkingResource
     private CubeUpgrade CurrentWorkTarget;
@@ -28,8 +26,7 @@ public class Worker : MonoBehaviour
   
     private void Awake()
     {
-        Agent = GetComponent<NavMeshAgent>();
-        CurrentAI = StartWander;
+      
     }
 
     private void Update()
@@ -128,18 +125,5 @@ public class Worker : MonoBehaviour
         return _workDone;
     }
 
-    private bool GetWanderLocation(out Vector3 pos)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            pos = new Vector3(transform.position.x + Random.Range(-WanderRadius, WanderRadius), 0, (transform.position.z + Random.Range(-WanderRadius, WanderRadius)));
-            if (NavMesh.SamplePosition(pos, out Hit, 1.0f, NavMesh.AllAreas))
-            {
-                pos = Hit.position;
-                return true;
-            }
-        }
-        pos = Vector3.zero;
-        return false;
-    }
+  
 }
