@@ -5,5 +5,6 @@ using UnityEngine;
 public class BuildingGoal : MonoBehaviour
 {
     // 
-    public List<MaterialRequirements>
+    public List<GoalPrereqs> GoalRequirements;
+
 }

@@ -4,16 +4,12 @@ using UnityEngine.AI;
 
 public class Worker : MonoBehaviour
 {
-    protected enum WorkerStates { Nil, Idle, Wander, HarvestingResource }
-
     private delegate void AIFunction();
     private AIFunction CurrentAI;
-    private AIFunction NextAI;
+
     public Transform BuildingMaterialCarryPos;
     #region Navigation General
-    private NavMeshAgent Agent;
-    private NavMeshHit Hit;
-    private Vector3 Destination;
+  
     #endregion
     #region Wander
     public float WanderRadius;
@@ -29,8 +25,7 @@ public class Worker : MonoBehaviour
     public BuildingMaterial CarriedMaterial;
 
     #endregion
-    private float currentTimer;
-    private float timer;
+  
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();

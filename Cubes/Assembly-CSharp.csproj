@@ -79,10 +79,13 @@
     <Compile Include="Assets\Scripts\LandMan.cs" />
     <Compile Include="Assets\Scripts\People\AI\AIgoals\BuildingGoal.cs" />
     <Compile Include="Assets\Scripts\People\AI\AIgoals\Goal.cs" />
+    <Compile Include="Assets\Scripts\People\AI\AIgoals\Jobs\Job.cs" />
+    <Compile Include="Assets\Scripts\People\AI\AIgoals\Jobs\Job_GatherResource.cs" />
     <Compile Include="Assets\Scripts\People\AI\AIgoals\PreReqs\GoalPrereqs.cs" />
     <Compile Include="Assets\Scripts\People\AI\AIgoals\PreReqs\MaterialPreReq.cs" />
     <Compile Include="Assets\Scripts\People\AI\AIManager.cs" />
-    <Compile Include="Assets\Scripts\People\Worker.cs" />
+    <Compile Include="Assets\Scripts\People\AI\Workers\Worker.cs" />
+    <Compile Include="Assets\Scripts\People\AI\Workers\WorkerAIFunctions.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\TileUpgrades\CubeUpgrade.cs" />
     <Compile Include="Assets\Scripts\TileUpgrades\Resource.cs" />
@@ -93,19 +96,19 @@
     <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -309,22 +312,22 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.6f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/fjose/Desktop/Projects/CubesRepo/Cubes/Cubes/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/GGPC/Desktop/NonWorkProjects/Cubes/Cubes/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
